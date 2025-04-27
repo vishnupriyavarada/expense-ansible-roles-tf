@@ -16,6 +16,30 @@
   ansible.builtin.user:
     name: expense
 
+# commenting common role because in meta folder we have put dependency as common so first it will run meta. so here its not needed
+# - name: include from common role
+#   # tags:
+#   # - deployment
+#   include_role:
+#     name: common
+#     task_from: main
+
+# - name: create app directory
+#   ansible.builtin.file:
+#     path: /app
+#     state: directory
+
+# - name: download backend code
+#   ansible.builtin.get_url:
+#     url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+#     dest: /tmp/backend.zip
+
+# - name: unzip backend code
+#   ansible.builtin.unarchive:
+#     src: /tmp/backend.zip
+#     dest: /app
+#     remote_src: yes  # Unarchive a file that is already on the remote machine.Here remote machine is backend server.
+
 - name: Install dependencies
   tags: 
   - deployment
